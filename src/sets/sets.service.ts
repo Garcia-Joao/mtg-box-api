@@ -20,11 +20,11 @@ export class SetsService {
       while (url) {
         const response = await axios.get(url);
         allCards = allCards.concat(response.data.data);
-        url = response.data.has_more ? response.data.next_page : null;  // verifica se há mais páginas
+        url = response.data.has_more ? response.data.next_page : null;
       }
       return allCards;
     } catch (error) {
-      throw new HttpException('Erro ao buscar cards na Scryfall', HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException('Error while seraching scryfall cards', HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }}
 }
